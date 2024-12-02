@@ -4,7 +4,6 @@ exports.generateQuote = async (req, res) => {
     const { driverAge, vehicleType, coverageAmount } = req.body;
   
     try {
-      // Premium Calculation Algorithm
       let basePremium = 100; // Base premium amount
       if (driverAge < 25) basePremium += 50; // Higher premium for young drivers
       if (vehicleType === 'sports') basePremium += 150; // Premium for sports cars

@@ -5,7 +5,7 @@ const userSchema = new moongose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    policies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Policy' }],
+    policies: [{ type: Object, ref: 'Policy' }],
 });
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {

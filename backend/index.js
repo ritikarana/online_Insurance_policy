@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
+const cors = require('cors')
 
 // Load environment variables
 dotenv.config();
@@ -10,6 +11,8 @@ connectDB();
 
 const app = express();
 
+app.use(cors)
+
 // Middleware for 
 app.use(express.json());
 
@@ -17,7 +20,7 @@ app.use(express.json());
 app.get('/', (req, res) => res.send('API is running...'));
 
 // Routes
-app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/auth', require('./routes/userRoutes'));
 app.use('/api/policies', require('./routes/policyRoutes'));
 app.use('/api/quotes', require('./routes/quoteRoutes'));
 
